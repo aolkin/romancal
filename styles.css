@@ -1,0 +1,58 @@
+
+.calendar {
+    font-size: 1.1em;
+}
+
+.calendar tr {
+    height: 6em;
+}
+
+.calendar td {
+    text-align: center;
+    vertical-align: middle !important;
+    position: relative;
+}
+
+.calendar .num {
+    position: absolute;
+    display: block;
+    top: 4px;
+    right: 6px;
+}
+
+.calendar td.empty-day {
+    opacity: 0.3;
+    border-color: rgba(221,221,221,0.3);
+}
+
+.calendar td.today {
+    background-color: #FFC !important;
+}
+.calendar td.special-day {
+    font-weight: bold;
+}
+
+.colorize-calendar .kalends {
+    background-color: #BBF;
+}
+.colorize-calendar .nones {
+    background-color: #BFB;
+}
+.colorize-calendar .ides {
+    background-color: #FBB;
+}
+
+
+#controls {
+    position: relative;
+}
+#calendar-header h3 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+#controls .pull-right {
+    position: absolute;
+    top: 9px;
+    right: 15px;
+}
