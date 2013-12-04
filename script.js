@@ -69,6 +69,15 @@ var currentMonth;
 function reloadCalendar(calendar) {
     currentMonth = calendar;
     currentMonth.outputTo("#calendar tbody","#calendar-header h3");
+
+	$("#next-month").removeAttr("disabled");
+	$("#prev-month").removeAttr("disabled");
+	if (currentMonth.getMonth() < 1) {
+	    $("#prev-month").attr("disabled","disabled");
+	}
+	if (currentMonth.getMonth() > 10) {
+	    $("#next-month").attr("disabled","disabled");
+	}
 }
 
 $(function(){
@@ -85,17 +94,9 @@ $(function(){
 
     $("#prev-month").click(function(){
 	reloadCalendar(currentMonth.prevMonth());
-	if (currentMonth.getMonth() < 1) {
-	    $(this).attr("disabled","disabled");
-	}
-	$("#next-month").removeAttr("disabled");
     });
     $("#next-month").click(function(){
 	reloadCalendar(currentMonth.nextMonth());
-	if (currentMonth.getMonth() > 10) {
-	    $(this).attr("disabled","disabled");
-	}
-	$("#prev-month").removeAttr("disabled");
     });
 
 });
