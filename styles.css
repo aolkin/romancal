@@ -26,7 +26,9 @@
 }
 
 .calendar td.today {
-    background-color: #FFC !important;
+    /* background-color: #FFC !important;
+    font-style: italic; */
+    box-shadow: 0 0 500px -80px #FF0 inset;
 }
 .calendar td.special-day {
     font-weight: bold;

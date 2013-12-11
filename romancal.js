@@ -15,9 +15,10 @@ Number.prototype.toRoman= function(){
     return '';
 }
 
-function SpecialDay(month,index) {
+function SpecialDay(month,index,year) {
     this.index = (typeof index === "number")?index:SpecialDay.names.indexOf(index);
     this.moment = moment();
+    if (year) { this.moment.year(year); }
     this.moment.month(month);
     this.moment.date(SpecialDay["days"+(this.isSpecialMonth()?15:13)][this.index]);
 }
@@ -68,12 +69,13 @@ RomanDay.prototype = {
 	this.date[name]();
     },
     nextSpecialDay: function() {
-	for (i in RomanDay.months[this.month]) {
-	    if (!RomanDay.months[this.month][i].passed(this.date)) {
-		return RomanDay.months[this.month][i];
+	var months = RomanDay.getYear(this.date.year());
+	for (i in months[this.month]) {
+	    if (!months[this.month][i].passed(this.date)) {
+		return months[this.month][i];
 	    }
 	}
-	return RomanDay.months[this.month + 1][0];
+	return months[this.month + 1][0];
     },
     toString: function(longform) {
 	var dist = this.nextDay.distance(this.date);
@@ -97,13 +99,18 @@ RomanDay.prototype = {
     }
 }
 
-RomanDay.months = [];
-for (i = 0; i < 13; i++) {
-    var dayArray = [];
-
-    for (j = 0; j < 3; j++) {
-	dayArray.push(new SpecialDay(i,j));
+RomanDay.years = {};
+RomanDay.getYear = function(year) {
+    if (!RomanDay.years[year]) {
+	var months = RomanDay.years[year] = [];
+	for (i = 0; i < 13; i++) {
+	    var dayArray = [];
+	    
+	    for (j = 0; j < 3; j++) {
+		dayArray.push(new SpecialDay(i,j,year));
+	    }
+	    months.push(dayArray);
+	}
     }
-
-    RomanDay.months.push(dayArray);
+    return RomanDay.years[year];
 }

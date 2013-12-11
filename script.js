@@ -32,9 +32,8 @@ CalendarMonth.prototype = {
 		    .text(romanDay);
 		if (today.equals(this.workingDay)) {
 		    day.addClass("today").attr("title","Today");
-		} else {
-		    day.addClass(romanDay.nextDay.getName().toLowerCase());
 		}
+		day.addClass(romanDay.nextDay.getName().toLowerCase());
 		if (romanDay.isSpecialDay()) {
 		    day.addClass("special-day");
 		}
@@ -46,7 +45,17 @@ CalendarMonth.prototype = {
 	this.currentRoot.append(row);
     },
     _adjacentMonth: function(multiplier) {
-	return new CalendarMonth(this.monthStart.month() + multiplier,this.monthStart.year());
+	var year = this.monthStart.year();
+	var month = this.monthStart.month() + multiplier;
+	if (month == 12) {
+	    return new CalendarMonth(0, year + 1);
+	}
+	else if (month == -1) {
+	    return new CalendarMonth(11, year - 1);
+	}
+	else {
+	    return new CalendarMonth(month, year);
+	}
     },
     nextMonth: function() {
 	return this._adjacentMonth(1);
@@ -69,15 +78,6 @@ var currentMonth;
 function reloadCalendar(calendar) {
     currentMonth = calendar;
     currentMonth.outputTo("#calendar tbody","#calendar-header h3");
-
-	$("#next-month").removeAttr("disabled");
-	$("#prev-month").removeAttr("disabled");
-	if (currentMonth.getMonth() < 1) {
-	    $("#prev-month").attr("disabled","disabled");
-	}
-	if (currentMonth.getMonth() > 10) {
-	    $("#next-month").attr("disabled","disabled");
-	}
 }
 
 $(function(){
