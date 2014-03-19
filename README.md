@@ -1,4 +1,6 @@
-romancal
+RomanCal
 ========
 
-A roman calendar calculator and (hopefully) visualizer of how the roman calendar works.
+A dynamically generated Roman Calendar, containing JS classes to represent a Roman Calendar.
+
+Future functions will hopefully include a quiz mode.

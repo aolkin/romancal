@@ -1,0 +1,39 @@
+.datepicker-inline {
+    margin: auto;
+}
+
+.datepicker-dropdown, .date {
+    width: 221px;
+    margin: auto;
+    display: block;
+}
+
+#selects {
+    width: 275px;
+    margin: auto;
+}
+
+#roman select {
+    padding: 6px;
+}
+
+.instructions, .controls {
+    margin-top: 4em;
+}
+
+#day, h2 {
+    text-align: center;
+}
+
+.col-md-4 {
+    margin-bottom: 1em;
+}
+
+.col-md-4:not(.center) > button {
+    width: 100%;
+}
+
+.controls-center-inner {
+    width: 280px;
+    margin: auto;
+}

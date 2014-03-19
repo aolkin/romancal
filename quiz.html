@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Roman Calendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css">
+
+    <link rel="stylesheet" href="quiz.css" />
+  </head>
+  <body>
+
+    <div class="container">
+    
+      <h1>Roman Calendar Quiz</h1>
+
+      <section id="text-info">
+	<p class="text-center"><a href=".">Home</a></p>
+      </section>
+
+      <section class="instructions">
+	<p class="text-center lead">Choose Quiz direction to begin by pressing one of the grey buttons at the bottom.</p>
+      </section>
+
+      <div class="row">
+	<div class="col-md-4" id="english">
+	  <h2>English Date</h2>
+	  <input class="date form-control" id="datepicker" disabled />
+	</div>
+	<div class="col-md-4 empty"></div>
+	<div class="col-md-4" id="roman">
+	  <h2>Roman Date</h2>
+	  <div id="selects" class="form-inline">
+	    <select class="form-control" disabled id="day">
+	      <option value="">&nbsp;</option>
+	      <option>Pridie</option>
+	      <option>III</option>
+	      <option>IV</option>
+	      <option>V</option>
+	      <option>VI</option>
+	      <option>VII</option>
+	      <option>VIII</option>
+	      <option>IX</option>
+	      <option>X</option>
+	      <option>XI</option>
+	      <option>XII</option>
+	      <option>XIII</option>
+	      <option>XIV</option>
+	      <option>XV</option>
+	      <option>XVI</option>
+	      <option>XVII</option>
+	      <option>XVIII</option>
+	      <option>XIX</option>
+	      <option>XX</option>
+	    </select>
+	    <select class="form-control" disabled id="specialday">
+	      <option value="-" disabled selected>&nbsp;</option>
+	      <option>Kalends</option>
+	      <option>Nones</option>
+	      <option>Ides</option>
+	    </select>
+	    <select class="form-control" disabled id="month">
+	      <option value="-" disabled selected>&nbsp;</option>
+	      <option>January</option>
+	      <option>February</option>
+	      <option>March</option>
+	      <option>April</option>
+	      <option>May</option>
+	      <option>June</option>
+	      <option>July</option>
+	      <option>August</option>
+	      <option>September</option>
+	      <option>October</option>
+	      <option>November</option>
+	      <option>December</option>
+	    </select>
+	  </div>
+	</div>
+      </div>
+	  
+	<section class="controls row">
+	  <div class="col-md-4">
+	    <button class="btn btn-default btn-lg" id="new-etr">New English-to-Roman
+	      <span class="glyphicon glyphicon-chevron-right"></span></button>
+	  </div>
+	  <div class="col-md-4 center">
+	    <div class="controls-center-inner">
+	      <button class="btn btn-warning btn-lg" id="check">
+		<span class="glyphicon glyphicon-ok"></span> Check</button>
+	      <button class="btn btn-success btn-lg" id="show-answer">
+		<span class="glyphicon glyphicon-eye-open"></span> Show Answer</button>
+	    </div>
+	  </div>
+	  <div class="col-md-4">
+	    <button class="btn btn-default btn-lg" id="new-rte">
+	      <span class="glyphicon glyphicon-chevron-left"></span>
+	      New Roman-to-English</button>
+	  </div>
+	</section>
+
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="chance.min.js"></script>
+    <script src="romancal.js"></script>
+    <script src="quiz.js"></script>
+  </body>
+</html>
