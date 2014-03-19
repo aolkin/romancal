@@ -56,11 +56,13 @@ Quiz.prototype.newQuestion = function newQuestion(givenEnglish) {
 
 Quiz.prototype.checkAnswer = function checkAnswer() {
     if (!this.englishDate) { return false; }
-    var correct;
     if (this.answerShown) {
 	this.message.html("You have already viewed the answer!");
+	return false;
     }
-    else if (this.toEnglish) {
+
+    var correct;
+    if (this.toEnglish) {
 	var userDate = moment(this.datepicker.datepicker("getDate"));
 	userDate.year(moment(this.englishDate).year());
 	correct = userDate.isSame(this.englishDate,"day");
