@@ -77,19 +77,20 @@ RomanDay.prototype = {
 	}
 	return months[this.month + 1][0];
     },
-    toString: function(longform) {
+    romanNumber: function() {
 	var dist = this.nextDay.distance(this.date);
-	var name = this.nextDay.getName();
-	var out = "";
 	if (dist === 0) {
-	    out = name;
+	    return "";
 	} else if (dist === 1) {
-	    out = "Pridie " + name;
+	    return "Pridie";
 	} else {
-	    out = (dist+1).toRoman() + " " + name;
+	    return (dist+1).toRoman();
 	}
-	out += " " + this.nextDay.monthName(longform);
-	return out;
+    },
+    toString: function(longform) {
+	var name = this.nextDay.getName();
+	return (this.romanNumber() + " " + name + " " +
+		this.nextDay.monthName(longform)).trim();
     },
     equals: function(day) {
 	return this.date.isSame(moment.isMoment(day)?day:day.date,"day");
