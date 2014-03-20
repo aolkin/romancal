@@ -17,7 +17,7 @@ Number.prototype.toRoman= function(){
 
 function SpecialDay(month,index,year) {
     this.index = (typeof index === "number")?index:SpecialDay.names.indexOf(index);
-    this.moment = moment();
+    this.moment = moment({hour: 0, minute: 0, second: 0});
     if (year) { this.moment.year(year); }
     this.moment.month(month);
     this.moment.date(SpecialDay["days"+(this.isSpecialMonth()?15:13)][this.index]);
@@ -53,6 +53,7 @@ SpecialDay.days15 = [1,7,15];
 function RomanDay(date) {
     this.date = (moment.isMoment(arguments[0]) && arguments[0]) ||
 	(arguments[0] && moment(arguments[0])) || moment();
+    this.date.hour(0).minute(0).second(0);
     this._update();
 }
 
