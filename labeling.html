@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Roman Calendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" href="css/labeling.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Word Labeling</h1>
+      
+      <section id="text-info">
+	<p class="text-center"><a href=".">Home</a></p>
+	<p class="text-center"><a href="quiz.html">Quiz</a></p>
+      </section>
+
+      <div class="panel panel-primary">
+	<div class="panel-heading">
+	  <div class="pull-right">
+	    <button class="btn btn-danger" id="reset">Reset</button>
+	    <button class="btn btn-warning" id="done">Done</button>
+	  </div>
+	  <p class="text-center lead instructions">Enter sentences below, one per line.</p>
+	</div>
+	<div class="panel-body">
+	  <textarea class="form-control"></textarea>
+	</div>
+      </div>
+
+      <section id="sentences"></section>
+
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
+    <script src="js/labeling.js"></script>
+  </body>
+</html>
