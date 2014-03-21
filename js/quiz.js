@@ -18,24 +18,24 @@ var Quiz = function(english,latin,info) {
 Quiz.prototype.START_YEAR = moment().year()-2;
 Quiz.prototype.END_YEAR = moment().year()+2;
 
-Quiz.prototype.randomDate = function randomDate() {
+Quiz.prototype._randomDate = function randomDate() {
     var year = chance.year({min: this.START_YEAR, max: this.END_YEAR});
-    var date = chance.date({year: year, hour: 0, minutes: 0, seconds: 0});
+    var date = chance.date({year: year, hour: 0, minute: 0, second: 0, millisecond: 0});
     return date;
 }
 
-Quiz.prototype.displayEnglish = function displayEnglish() {
+Quiz.prototype._displayEnglish = function displayEnglish() {
     this.datepicker.datepicker("setDate",this.englishDate).datepicker("update");
 }
 
-Quiz.prototype.displayRoman = function displayRoman() {
+Quiz.prototype._displayRoman = function displayRoman() {
     this.roman.eq(0).val(this.romanDate.romanNumber());
     this.roman.eq(1).val(this.romanDate.nextDay.getName());
     this.roman.eq(2).val(this.romanDate.nextDay.monthName(true));
 }
 
 Quiz.prototype.newQuestion = function newQuestion(givenEnglish) {
-    var date = this.randomDate();
+    var date = this._randomDate();
     this.englishDate = date;
     this.romanDate = new RomanDay(date);
     this.toEnglish = !givenEnglish;
@@ -46,10 +46,10 @@ Quiz.prototype.newQuestion = function newQuestion(givenEnglish) {
 	$(el).prop("disabled",givenEnglish?"":"disabled").val("-");
     });
     if (givenEnglish) {
-	this.displayEnglish();
+	this._displayEnglish();
 	this.message.html("Choose the corresponding <em>Roman</em> date.");
     } else {
-	this.displayRoman();
+	this._displayRoman();
 	this.message.html("Choose the corresponding <em>English</em> date.");
     }
 }
@@ -81,10 +81,10 @@ Quiz.prototype.showAnswer = function showAnswer() {
     this.answerShown = true;
     if (this.toEnglish) {
 	this.datepicker.prop("disabled","disabled");
-	this.displayEnglish();
+	this._displayEnglish();
     } else {
 	this.roman.prop("disabled","disabled");
-	this.displayRoman();
+	this._displayRoman();
     }
 }
 
