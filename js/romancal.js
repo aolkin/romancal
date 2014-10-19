@@ -53,7 +53,7 @@ SpecialDay.days15 = [1,7,15];
 function RomanDay(date) {
     this.date = (moment.isMoment(arguments[0]) && arguments[0]) ||
 	(arguments[0] && moment(arguments[0])) || moment();
-    this.date.hour(0).minute(0).second(0);
+    this.date.hour(0).minute(0).second(0).millisecond(0);
     this._update();
 }
 

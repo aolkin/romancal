@@ -11,11 +11,11 @@
   </head>
   <body>
     <div class="container">
-      <h1>Grammar Labeling <small>by Aaron Olkin</small></h1>
+      <h1>Grammar Labeling <!--<small>by Aaron Olkin</small>--></h1>
       
       <section id="text-info">
-	<p class="text-center"><a href=".">Home</a></p>
-	<p class="text-center"><a href="quiz.html">Quiz</a></p>
+	<p class="text-center"><a href=".">Roman Calendar</a></p>
+	<p class="text-center"><a href="quiz.html">Calendar Quiz</a></p>
       </section>
 
       <div class="panel panel-primary">
@@ -26,11 +26,12 @@
 	      <option value="pos">Parts of Speech</option>
 	      <option value="role">Role</option>
 	      <option value="case">Case</option>
-	      <option value="tense" disabled>Tense</option>
+	      <!--<option value="tense" disabled>Tense</option>-->
 	    </select>
 	  </div>
 	  <div class="pull-right">
 	    <button class="btn btn-danger" id="reset" disabled>Reset</button>
+	    <button class="btn btn-success" id="link" disabled>Get Link</button>
 	    <button class="btn btn-warning" id="done">Done</button>
 	  </div>
 	  <p class="text-center lead instructions">Enter sentences below, one per line,
@@ -41,7 +42,7 @@
 	</div>
       </div>
 
-      <section id="sentences"></section>
+      <section id="sentences" contenteditable="true"></section>
 
     </div>
 

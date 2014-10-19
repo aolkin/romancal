@@ -78,3 +78,7 @@ textarea.form-control {
     left: 0px;
     right: 8px;
 }
+
+[contenteditable=true]:focus {
+    outline: none;
+}
