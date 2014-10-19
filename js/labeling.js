@@ -59,6 +59,7 @@ Labeler.prototype._createLabel = function createLabel(word,text) {
     }
     else if (this.mode === "role") {
 	el.append("<option>S</option>");
+	el.append("<option>V</option>");
 	el.append("<option>DO</option>");
 	el.append("<option>IO</option>");
 	el.append("<option>PP</option>");
@@ -116,5 +117,18 @@ $(function(){
 	$(".instructions").text(
 	    "Enter sentences below, one per line.");
     });
+    $("#link").click(function(){
+	prompt("Copy and save the link below:\n\n(Using a shortlink service is reccomended before posting a link.)", location.origin + location.pathname +
+	       "?" + labeler.modesel.val() + "#" +
+	       encodeURIComponent(labeler.textarea.val()));
+    });
+
+    if (location.hash && location.search) {
+	$(".pull-right, #mode").hide();
+	$(".instructions").text("Click on words to label them.");
+	labeler.textarea.val(decodeURIComponent(location.hash.substr(1)));
+	labeler.modesel.val(location.search.substring(1));
+	labeler.update();
+    }
 
 });
